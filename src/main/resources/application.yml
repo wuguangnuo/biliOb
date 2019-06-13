@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://120.25.154.218:1433;DatabaseName=fast;
+    username: sa
+    password: Xyj#21811517%!$
+server:
+  port:
+    8888
