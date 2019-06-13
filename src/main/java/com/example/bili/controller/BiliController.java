@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.bili.entity.Bilibili;
 import com.example.bili.mapper.BilibiliMapper;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -79,6 +80,7 @@ public class BiliController {
         String responseInfo = null;
         try {
             HttpGet httpGet = new HttpGet(url);
+            // 代理设置 HttpHost
             httpGet.addHeader("Content-Type", "application/json;charset=UTF-8");
             CloseableHttpResponse response = httpclient.execute(httpGet);
             HttpEntity entity = response.getEntity();
@@ -88,6 +90,12 @@ public class BiliController {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            try {
+                Thread.sleep(10 * 60 * 1000);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
+            responseInfo = biliGet(url);
         } finally {
             try {
                 httpclient.close();
