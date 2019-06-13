@@ -1,9 +1,15 @@
 spring:
   datasource:
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://120.25.154.218:1433;DatabaseName=fast;
-    username: sa
-    password: Xyj#21811517%!$
+    #    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    #    url: jdbc:sqlserver://localhost:1433;DatabaseName=fast;
+    #    username: sa
+    #    password:
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password:
 server:
   port:
     8888
+logging:
+  level:
+    com.example.bili: debug
