@@ -12,4 +12,4 @@ server:
     8888
 logging:
   level:
-    com.example.bili: debug
+    com.example.bili: info

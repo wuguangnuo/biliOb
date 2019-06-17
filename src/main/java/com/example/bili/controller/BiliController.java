@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.bili.entity.Bilibili;
 import com.example.bili.mapper.BilibiliMapper;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpHost;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @RestController
 public class BiliController {
@@ -113,6 +113,16 @@ public class BiliController {
                 Thread.sleep(250 - diff);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+        }
+        // 3:05 开始睡眠一小时
+        if (LocalTime.now().getHour() == 3) {
+            if (LocalTime.now().getMinute() == 5) {
+                try {
+                    Thread.sleep(60 * 60 * 1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

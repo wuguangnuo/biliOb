@@ -11,13 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MySqlConnectTest {
 
-    @Autowired
+    @Autowired(required = false)
     private PmsBrandMapper pmsBrandMapper;
 
     @Test
@@ -35,5 +36,4 @@ public class MySqlConnectTest {
         );
 
     }
-
 }
